@@ -170,14 +170,39 @@ section {
     -webkit-backdrop-filter: blur(var(--glass-blur));
     border: 1px solid var(--glass-border);
     border-radius: var(--glass-radius);
-    padding: 2.5rem;
+    padding: 2rem; /* Reduced from 2.5rem for tighter layout */
     transition: all 0.4s ease;
 }
 
-/* Only CTA scale 1.05 and blue glow on hover */
+/* Hover interactions for all bento cards */
+.bento-grid .glass-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 .bento-grid .glass-card:hover {
     box-shadow: var(--glow-shadow);
-    border-color: rgba(73, 136, 196, 0.3);
+    border-color: rgba(73, 136, 196, 0.5);
+    background: var(--accent-primary);
+    transform: translateY(-5px);
+}
+
+/* Make text inside pop out slightly on hover */
+.bento-grid .glass-card h3,
+.bento-grid .glass-card p,
+.bento-grid .glass-card .label,
+.bento-grid .glass-card .safety-indicator-list {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.bento-grid .glass-card:hover h3,
+.bento-grid .glass-card:hover p,
+.bento-grid .glass-card:hover .label {
+    transform: scale(1.03);
+    color: white;
+}
+
+.bento-grid .glass-card:hover p {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Navigation */
@@ -347,9 +372,10 @@ section {
 
 .problem-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 3rem;
     align-items: center;
+    text-align: center;
 }
 
 .text-intro {
@@ -357,7 +383,7 @@ section {
 }
 
 .highlight-q {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--accent-glow);
     margin-top: 2rem;
@@ -365,104 +391,47 @@ section {
     border-top: 1px solid var(--glass-border);
 }
 
-/* Hazard Simulation Panel */
-.hazard-panel {
-    background: rgba(0,0,0,0.2);
-    border: 1px solid rgba(255,51,51,0.2);
-    border-radius: 1.5rem;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.hazard-header {
+.problem-stats {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
-.warning-pulse {
-    width: 12px; height: 12px;
-    background: #ff3333;
-    border-radius: 50%;
-    box-shadow: 0 0 15px #ff3333;
-    animation: pulseRed 1.5s infinite;
-}
-
-.hazard-chart-container {
-    height: 150px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    border-left: 1px solid rgba(255,255,255,0.1);
-    position: relative;
-    margin-bottom: 1.5rem;
-}
-
-.danger-threshold-line {
-    position: absolute;
-    top: 30%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    border-top: 1px dashed rgba(255,51,51,0.6);
-}
-
-.danger-threshold-line span {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    color: #ff3333;
-    position: absolute;
-    right: 5px;
-    top: -15px;
-}
-
-.chart-line {
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 100%; height: 100%;
-    border-radius: 0 100% 0 0;
-    transform-origin: bottom left;
-}
-
-/* Simulate the line rising over the threshold */
-.red-line {
-    border-top: 3px solid #ff3333;
-    animation: riseRed 4s ease-in-out infinite alternate;
-}
-
-.hazard-alerts {
+.problem-stat {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
 }
 
-.alert-box {
-    background: rgba(255,255,255,0.05);
-    padding: 0.8rem;
-    border-radius: 0.8rem;
-    flex: 1;
-    font-family: 'JetBrains Mono', monospace;
+.problem-stat-num {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
-.alert-box .val {
-    display: block;
-    font-weight: bold;
-    font-size: 1.1rem;
+.problem-stat-label {
+    font-size: 0.85rem;
     color: var(--text-dim);
+    max-width: 160px;
+    line-height: 1.4;
+    font-family: 'JetBrains Mono', monospace;
 }
-
-.alert-box.active {
-    background: rgba(255,51,51,0.1);
-    border: 1px solid rgba(255,51,51,0.3);
-}
-
-.alert-box.active .val {
-    color: #ff3333;
-    animation: flashText 1s infinite;
-}
-
 
 /* Orbital Hub */
 .orbital-hub {
     overflow: hidden;
+}
+
+.hub-title {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 1rem;
 }
 
 .orbital-grid {
@@ -617,32 +586,20 @@ section {
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(200px, auto);
+    grid-auto-rows: minmax(140px, auto); /* Reduced from 200px for a tighter, more pill-shaped modern look */
     gap: 1.5rem;
     margin-top: 3rem;
 }
 
-.span-2x2 {
+.span-2 {
     grid-column: span 2;
-    grid-row: span 2;
 }
 
-.feature-accent {
-    background: var(--accent-primary);
-    color: white;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.feature-accent .label { color: #fff; opacity: 0.8; }
-.feature-accent p { color: rgba(255,255,255,0.9); }
 
 .feature-main h3 { font-size: 2.2rem; }
 
 .safety-indicator-list {
-    margin-top: 2rem;
+    margin-top: 1.5rem; /* Revert to a static margin instead of auto to sit right below the text */
     background: rgba(0,0,0,0.2);
     padding: 1.5rem;
     border-radius: 1rem;

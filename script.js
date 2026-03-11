@@ -303,8 +303,28 @@ function initMoleculeViewer(container) {
 
     // 5. Selector Buttons
     const buttons = document.querySelectorAll('.mol-btn');
-    buttons.forEach(btn => {
+    let currentMolIndex = 0;
+    
+    function cycleMolecule() {
+        if (!buttons.length) return;
+        currentMolIndex = (currentMolIndex + 1) % buttons.length;
+        const nextBtn = buttons[currentMolIndex];
+        
+        buttons.forEach(b => b.classList.remove('active-mol'));
+        nextBtn.classList.add('active-mol');
+        
+        const gas = nextBtn.getAttribute('data-gas');
+        buildMolecule(gas);
+    }
+    
+    let autoMolInterval = setInterval(cycleMolecule, 4000);
+
+    buttons.forEach((btn, index) => {
         btn.addEventListener('click', (e) => {
+            currentMolIndex = index;
+            clearInterval(autoMolInterval);
+            autoMolInterval = setInterval(cycleMolecule, 4000);
+            
             // Update active state
             buttons.forEach(b => b.classList.remove('active-mol'));
             e.target.classList.add('active-mol');
