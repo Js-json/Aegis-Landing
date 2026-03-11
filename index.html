@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AegisAir | Environmental Intelligence Platform</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Three.js for 3D Molecule Viewer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Background Grid & Glows -->
+    <div class="bg-grid"></div>
+    <div class="hero-glow"></div>
+
+    <!-- 1. Navigation (Sticky) -->
+    <nav class="capsule-nav">
+        <div class="nav-content">
+            <div class="logo">AegisAir</div>
+            <div class="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#features">Features</a>
+                <a href="#workflow">How It Works</a>
+            </div>
+            <a href="https://aegis-air.vercel.app/" class="btn nav-btn glow-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content float-calm-1">
+                <h1>Smart Gas & Smoke Detection.<br><span class="text-gradient">Instant Protection.</span></h1>
+                <p class="hero-desc">An intelligent monitoring system that detects gas leaks and smoke early, sends real-time alerts, and prevents disasters before they escalate.<br><br>The system continuously monitors gas concentration and smoke levels. Sensor data is analyzed in real time and stored in the cloud, enabling instant alerts and remote monitoring through a live dashboard.</p>
+                <div class="hero-ctas">
+                    <a href="#workflow" class="btn btn-outline">Learn How It Works</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual float-calm-2">
+                <div class="glass-card molecule-viewer-card">
+                    <div class="dash-glow-bg"></div>
+                    <div class="molecule-header">
+                        <span class="label">GAS COMPOSITION</span>
+                    </div>
+                    
+                    <div class="molecule-canvas-container" id="molecule-canvas">
+                        <!-- Three.js Canvas binds here -->
+                    </div>
+                    
+                    <div class="molecule-dynamic-label">
+                        <h3 id="mol-name">Propane</h3>
+                        <span id="mol-formula" class="label">C3H8</span>
+                    </div>
+                    
+                    <div class="molecule-selector">
+                        <button class="mol-btn active-mol" data-gas="propane">Propane</button>
+                        <button class="mol-btn" data-gas="butane">Butane</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Problem Section -->
+    <section class="problem-section" id="problem">
+        <div class="container">
+            <div class="problem-grid glass-card float-calm-1 text-intro">
+                <div class="problem-text">
+                    <h2>Why Gas Leak Detection Needs to Be <span class="text-gradient">Smarter</span></h2>
+                    <p>Gas leaks and smoke accumulation can quickly lead to fires, explosions, and serious health hazards. Traditional detectors rely only on local alarms, which may go unnoticed when occupants are asleep or away.</p>
+                    <p>In many homes, kitchens, laboratories, and industries, delayed detection can cause catastrophic damage.</p>
+                    <div class="highlight-q">What if gas leaks could be detected instantly and the gas supply could be stopped automatically?</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Orbital Integration Hub -->
+    <section class="orbital-hub" id="orchestra">
+        <div class="container orbital-grid">
+            <div class="hub-info">
+                <p>The AegisAir platform connects environmental sensing, cloud monitoring, and safety automation into a single intelligent system that protects environments in real time.</p>
+                <div class="stat-group">
+                    <div class="stat">
+                        <span class="stat-text text-gradient">Real-Time</span>
+                        <span class="stat-sub">Monitoring</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-text text-gradient">Instant</span>
+                        <span class="stat-sub">Alerts</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-text text-gradient">Remote</span>
+                        <span class="stat-sub">Safety Control</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hub-visual">
+                <div class="orbit-system">
+                    <div class="hub-center">
+                        <div class="hub-core pulse-glow"></div>
+                    </div>
+                    
+                    <!-- Inner Ring (6) -->
+                    <div class="ring inner-ring">
+                        <div class="node node-1"></div>
+                        <div class="node node-2"></div>
+                        <div class="node node-3"></div>
+                        <div class="node node-4"></div>
+                        <div class="node node-5"></div>
+                        <div class="node node-6"></div>
+                    </div>
+                    
+                    <!-- Middle Ring (10) (reverse) -->
+                    <div class="ring mid-ring">
+                        <div class="node mini-node m1"></div>
+                        <div class="node mini-node m2"></div>
+                        <div class="node mini-node m3"></div>
+                        <div class="node mini-node m4"></div>
+                        <div class="node mini-node m5"></div>
+                        <div class="node mini-node m6"></div>
+                        <div class="node mini-node m7"></div>
+                        <div class="node mini-node m8"></div>
+                        <div class="node mini-node m9"></div>
+                        <div class="node mini-node m10"></div>
+                    </div>
+                    
+                    <!-- Outer Ring (9) -->
+                    <div class="ring outer-ring">
+                         <div class="node o-node o1"></div>
+                         <div class="node o-node o2"></div>
+                         <div class="node o-node o3"></div>
+                         <div class="node o-node o4"></div>
+                         <div class="node o-node o5"></div>
+                         <div class="node o-node o6"></div>
+                         <div class="node o-node o7"></div>
+                         <div class="node o-node o8"></div>
+                         <div class="node o-node o9"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Features Section (Bento Grid) -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Features</h2>
+                <p>Advanced capabilities for total environmental awareness.</p>
+            </div>
+            
+            <div class="bento-grid">
+                <!-- Large 2x2 Feature -->
+                <div class="glass-card feature-main span-2x2">
+                    <span class="label">HAZARD DEFENSE</span>
+                    <h3>Intelligent Hazard Detection</h3>
+                    <p>When critical LPG, Methane, Hydrogen, or Smoke levels are detected, the system immediately triggers a physical valve to stop gas supply, preventing escalation while sending immediate alerts.</p>
+                    <div class="safety-indicator-list">
+                        <div class="safety-row"><div class="dot green"></div> SAFE - Normal Operations</div>
+                        <div class="safety-row"><div class="dot yellow"></div> WARNING - Elevated Levels</div>
+                        <div class="safety-row"><div class="dot red"></div> DANGER - Critical Shutoff Engaged</div>
+                    </div>
+                </div>
+
+                <div class="glass-card feature-accent highlight-card text-center">
+                    <span class="label">SENSING</span>
+                    <h3>Gas Leak Detection</h3>
+                    <p>Highly sensitive detection of combustible gases.</p>
+                </div>
+
+                <div class="glass-card feature-std">
+                    <span class="label">MONITORING</span>
+                    <h3>Real-Time Monitoring</h3>
+                    <p>Continuous observation of environmental conditions.</p>
+                </div>
+
+                <div class="glass-card feature-std">
+                    <span class="label">ALERTS</span>
+                    <h3>Instant Alert System</h3>
+                    <p>Immediate notifications pushed to devices when danger arises.</p>
+                </div>
+
+                <div class="glass-card feature-std">
+                    <span class="label">ANALYTICS</span>
+                    <h3>Safety Analytics</h3>
+                    <p>Understand the security health of your monitored areas.</p>
+                </div>
+
+                <div class="glass-card feature-std">
+                    <span class="label">DATA</span>
+                    <h3>Historical Data</h3>
+                    <p>Store and visualize past readings to spot underlying trends.</p>
+                </div>
+                
+                <div class="glass-card feature-std">
+                    <span class="label">AWARENESS</span>
+                    <h3>Environmental Insights</h3>
+                    <p>Deep insight into your facility's safety characteristics.</p>
+                </div>
+
+                <div class="glass-card feature-std">
+                    <span class="label">DASHBOARD</span>
+                    <h3>Remote Monitoring Dashboard</h3>
+                    <p>Access your safe-status from any network location globally.</p>
+                </div>
+                
+                <div class="glass-card feature-std">
+                    <span class="label">SENSING PLUS</span>
+                    <h3>Smoke Detection</h3>
+                    <p>Secondary validation layer targeting early combustion signals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. How It Works -->
+    <section class="workflow-light" id="workflow">
+        <div class="container text-center">
+            <h2 class="dark-head">How the System Works</h2>
+            <div class="workflow-grid">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <h3 class="dark-head">Sensors Monitor Environment</h3>
+                    <p class="dark-text">The system continuously detects gas concentration and smoke levels.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <h3 class="dark-head">Microcontroller Processes Data</h3>
+                    <p class="dark-text">Incoming readings are filtered and evaluated.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <h3 class="dark-head">Cloud Data Monitoring</h3>
+                    <p class="dark-text">Sensor values are uploaded to the cloud database and visualized.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">04</div>
+                    <h3 class="dark-head">Alerts & Prevention</h3>
+                    <p class="dark-text">The system triggers alerts and automatically shuts off the gas valve if critical levels are detected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 8. Impact Section [NEW] -->
+    <section class="impact-section">
+        <div class="container imp-container">
+            <div class="imp-text">
+                <h2>Potential Impact</h2>
+                <div class="goal-statement">
+                    "our goal is to make the world a better place"
+                </div>
+            </div>
+            <div class="glass-card imp-list">
+                <span class="label">EARLY DETECTION & PREVENTION</span>
+                <ul class="clean-list impact-bullets">
+                    <li>Reduce fire and explosion risks</li>
+                    <li>Prevent gas accumulation indoors</li>
+                    <li>Save lives and property</li>
+                    <li>Enable faster emergency response</li>
+                    <li>Improve safety in homes, hostels, kitchens, and laboratories</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Future Possibilities [NEW] -->
+    <section class="future-section">
+        <div class="container text-center">
+            <h2>Future Possibilities</h2>
+            <div class="future-grid glass-card">
+                <div class="future-item">
+                    <span class="label">01 </span> Automatic emergency service notification
+                </div>
+                <div class="future-item">
+                    <span class="label">02 </span> Mobile application integration
+                </div>
+                <div class="future-item">
+                    <span class="label">03 </span> AI-based gas risk prediction
+                </div>
+                <div class="future-item">
+                    <span class="label">04 </span> Smart building integration
+                </div>
+                <div class="future-item">
+                    <span class="label">05 </span> Multiple sensor network for large buildings
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Call To Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="glass-card cta-card text-center float-calm-1">
+                <h2>Ready to Serve Your Environment?</h2>
+                <div class="cta-actions">
+                    <a href="https://aegis-air.vercel.app/" class="btn btn-primary glow-cta">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Minimal Footer -->
+    <footer class="minimal-footer">
+        <div class="watermark">AEGISAIR</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/thomson-leo-thomas/AegisAir">GitHub</a>
+                <a href="mailto:tdandtlt@gmail.com">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
