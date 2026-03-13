@@ -83,11 +83,9 @@ A three-depth-layer architecture was applied to prevent the white base from feel
 ## Phase 8 — Link Sanitization & Support Integration
 - **Removed Links:** GitHub repository and personal contact email links were removed from the footer to keep the interface focused.
 - **Support Integration:** Added "Support Us" and "Fire Force" buttons to navigation bars. The top navigation buttons ("Get Started", "Support Us", and "Fire Force") are grouped together in a `nav-actions` container for clean side-by-side alignment on the right.
-- **Fire Force Styling:** The "Fire Force" button features a unique red backlight/hover effect (`#ff4b2b`) to distinguish it from the standard green accents.
+- **Support Button Styling:** The "Support Us" button features a light blue hover effect (`#00d2ff`), and the "Fire Force" button features a red hover effect (`#ff4b2b`) to distinguish them from the standard green accents.
 - **Navigation Polish:** Centered the main navigation links ("Home", "Features", "How It Works") perfectly within the capsule for better visual balance.
-- **Support Links:** "Support Us" links to `https://aegis-air-supportpage-vadv.vercel.app/` and "Fire Force" links to `https://aegisair-fireforce.vercel.app/`.
-
----
-
-## Phase 9 — Local Deployment
+- **Support**
+    - Outline Button (`Support Us` → `10px margin-left`, links to support page). **Hover:** uses light blue accent (`#00d2ff`) and glow.
+    - Outline Button (`Fire Force` → `10px margin-left`, links to `https://aegisair-fireforce.vercel.app/`). **Hover:** uses red accent (`#ff4b2b`) and red glow shadow.
 - The site is configured for local preview and testing on `localhost:4000`.

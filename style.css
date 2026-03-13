@@ -189,6 +189,12 @@ section {
     box-shadow: 0 8px 24px rgba(255, 75, 43, 0.35);
 }
 
+.btn-support:hover {
+    border-color: #00d2ff !important;
+    color: #00d2ff !important;
+    box-shadow: 0 8px 24px rgba(0, 210, 255, 0.35);
+}
+
 /* =============================================
    Glass Card System
    ============================================= */
