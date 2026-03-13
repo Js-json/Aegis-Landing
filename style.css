@@ -762,15 +762,13 @@ h1 { color: var(--charcoal); }
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 18vw;
+    font-size: 10vw;
     font-weight: 900;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.2em;
     color: rgba(255, 255, 255, 0.04);
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
-    width: 100%;
-    text-align: center;
 }
 
 .footer-content { position: relative; z-index: 1; padding: 1rem 0; }
@@ -988,8 +986,7 @@ p  { font-size: clamp(0.95rem, 2.5vw, 1.05rem); }
 
     /* Footer watermark */
     .watermark {
-        font-size: clamp(3rem, 15vw, 18vw);
-        letter-spacing: 0.15em;
+        font-size: clamp(3rem, 10vw, 12rem);
     }
 
     /* Touch targets */
